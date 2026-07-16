@@ -158,7 +158,7 @@ O projeto será considerado concluído quando:
 
 ---
 
-#11. Paleta de Cores/Padrão visual
+# 11. Paleta de Cores/Padrão visual
 
 | Elemento | Cor | Código Hexadecimal |
 |----------|-----|--------------------|
