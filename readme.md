@@ -170,6 +170,9 @@ O projeto será considerado concluído quando:
 
 ---
 
+# 12 Link do Protótipo (Figma)
+https://www.figma.com/design/JBQQcfyzFfMVToPKs70oSq/Untitled?timeline=keyframe&timeline-playback-time=197000&node-id=0-1&p=f&t=1CdEqemoiDOGWqCE-0
+
 # Resumo Executivo
 
 O **EcoFactory** é um sistema de gestão industrial que busca substituir o controle realizado por planilhas, oferecendo uma plataforma web integrada para gerenciamento de máquinas, produção, sustentabilidade e segurança.
