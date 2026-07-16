@@ -158,6 +158,18 @@ O projeto será considerado concluído quando:
 
 ---
 
+#11. Paleta de Cores/Padrão visual
+
+| Elemento | Cor | Código Hexadecimal |
+|----------|-----|--------------------|
+| Fundo | 🟦 | `#069494` |
+| Inputs | ⬜ | `#FFFFFF` |
+| Botões | 🟩 | `#BDFEFF` |
+| Textos | ⬛ | `#000000` |
+| Símbolos | ⬛ | `#000000` |
+
+---
+
 # Resumo Executivo
 
 O **EcoFactory** é um sistema de gestão industrial que busca substituir o controle realizado por planilhas, oferecendo uma plataforma web integrada para gerenciamento de máquinas, produção, sustentabilidade e segurança.
