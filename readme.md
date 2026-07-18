@@ -280,7 +280,7 @@ PORT=3000
 ## Backend
 
 ```bash
-npm start
+npm run dev
 ```
 
 Servidor:
