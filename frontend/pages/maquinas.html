@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Máquinas</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<aside class="sidebar">
+
+<h2>EcoFactory</h2>
+
+<nav>
+
+<a href="dashboard.html">Dashboard</a>
+
+<a href="maquinas.html">Máquinas</a>
+
+</nav>
+
+</aside>
+
+<main class="content">
+
+<h1>Cadastro de Máquinas</h1>
+
+<form id="machineForm">
+
+    <input
+        type="text"
+        id="nome"
+        placeholder="Nome da Máquina"
+        required
+    >
+
+    <input
+        type="text"
+        id="setor"
+        placeholder="Setor"
+        required
+    >
+
+    <select id="status">
+
+        <option value="EM_OPERACAO">
+            Em Operação
+        </option>
+
+        <option value="MANUTENCAO">
+            Manutenção
+        </option>
+
+        <option value="PARADA">
+            Parada
+        </option>
+
+    </select>
+
+    <button>
+
+        Salvar
+
+    </button>
+
+</form>
+
+<br>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Nome</th>
+
+<th>Setor</th>
+
+<th>Status</th>
+
+<th>Ações</th>
+
+</tr>
+
+</thead>
+
+<tbody id="machineTable">
+
+</tbody>
+
+</table>
+
+</main>
+
+</div>
+
+<script src="../js/scriptgeral.js"></script>
+
+</body>
+
+</html>
