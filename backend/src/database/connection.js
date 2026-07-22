@@ -16,24 +16,4 @@ const pool = new Pool({
 
 });
 
-async function testarConexao() {
-    try {
-        const resultado = await pool.query(`
-            SELECT 
-                p.product,
-                p.produced_quantity,
-                m.name
-            FROM productions p
-            JOIN machines m ON p.machine_id = m.id;
-        `);
-
-        console.log("✅ Banco PostgreSQL conectado!");
-        console.log("📦 Dados recebidos do banco:");
-        console.table(resultado.rows);
-
-    } catch (erro) {
-        console.error("❌ Erro na conexão:", erro.message);
-    }
-}
-
 module.exports = pool;
