@@ -1,3 +1,7 @@
+CREATE DATABASE EcoFactory;
+
+USE EcoFactory;
+
 CREATE TABLE machines (
 
     id SERIAL PRIMARY KEY,
