@@ -3,6 +3,11 @@ const API_URL = "http://localhost:3000/machines";
 let machines = [];
 let editando = null;
 
+const PRODUCTION_API = "http://localhost:3000/productions";
+
+let productions = [];
+let editandoProducao = null;
+
 const form = document.getElementById("machineForm");
 const filtro = document.getElementById("filtroStatus");
 
@@ -268,3 +273,199 @@ function renderizar() {
 // INICIAR
 // =============================
 carregarMaquinas();
+
+async function carregarSelectMaquinas(){
+
+    const select = document.getElementById("maquina");
+
+    if(!select) return;
+
+    const response = await fetch(API_URL);
+
+    const maquinas = await response.json();
+
+    maquinas.forEach(maquina=>{
+
+        select.innerHTML += `
+            <option value="${maquina.id}">
+                ${maquina.name}
+            </option>
+        `;
+
+    });
+
+}
+
+async function carregarProducoes(){
+
+    const tabela = document.getElementById("productionTable");
+
+    if(!tabela) return;
+
+    const response = await fetch(PRODUCTION_API);
+
+    productions = await response.json();
+
+    atualizarProducoes();
+
+}
+
+function atualizarProducoes(){
+
+    const tabela = document.getElementById("productionTable");
+
+    if(!tabela) return;
+
+    tabela.innerHTML = "";
+
+    productions.forEach(prod=>{
+
+        const eficiencia = Number(
+            ((prod.produced_quantity / prod.expected_quantity) * 100).toFixed(2)
+        );
+
+        let classe = "eficiencia-baixa";
+
+        if(eficiencia >= 90){
+
+            classe = "eficiencia-alta";
+
+        }else if(eficiencia >=70){
+
+            classe = "eficiencia-media";
+
+        }
+
+        tabela.innerHTML += `
+
+        <tr>
+
+            <td>${prod.product}</td>
+
+            <td>${prod.machine_name}</td>
+
+            <td>${prod.produced_quantity}</td>
+
+            <td>${prod.expected_quantity}</td>
+
+            <td class="${classe}">
+                ${eficiencia}%
+            </td>
+
+            <td>
+
+                <button onclick="editarProducao(${prod.id})">
+                    Editar
+                </button>
+
+                <button onclick="removerProducao(${prod.id})">
+                    Excluir
+                </button>
+
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+}
+
+const productionForm = document.getElementById("productionForm");
+
+if(productionForm){
+
+    productionForm.addEventListener("submit", salvarProducao);
+
+}
+
+async function salvarProducao(e){
+
+    e.preventDefault();
+
+    const producao = {
+
+        product: document.getElementById("produto").value,
+
+        machine_id: Number(document.getElementById("maquina").value),
+
+        produced_quantity: Number(document.getElementById("produzido").value),
+
+        expected_quantity: Number(document.getElementById("meta").value),
+
+        production_date: new Date().toISOString().split("T")[0]
+
+    };
+
+    if(editandoProducao === null){
+
+        await fetch(PRODUCTION_API,{
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify(producao)
+
+        });
+
+    }else{
+
+        await fetch(`${PRODUCTION_API}/${editandoProducao}`,{
+
+            method:"PUT",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify(producao)
+
+        });
+
+        editandoProducao = null;
+
+    }
+
+    productionForm.reset();
+
+    carregarProducoes();
+
+}
+
+function editarProducao(id){
+
+    const prod = productions.find(p => p.id == id);
+
+    if(!prod) return;
+
+    document.getElementById("produto").value = prod.product;
+
+    document.getElementById("maquina").value = prod.machine_id;
+
+    document.getElementById("produzido").value = prod.produced_quantity;
+
+    document.getElementById("meta").value = prod.expected_quantity;
+
+    editandoProducao = id;
+
+}
+
+async function removerProducao(id){
+
+    await fetch(`${PRODUCTION_API}/${id}`,{
+
+        method:"DELETE"
+
+    });
+
+    carregarProducoes();
+
+}
+
+carregarMaquinas();
+carregarProducoes();
+carregarSelectMaquinas();

@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 const machineRoutes = require("./routes/machineRoutes");
+const productionRoutes = require("./routes/productionRoutes");
 
 const app = express();
 
@@ -17,5 +18,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/machines", machineRoutes);
+app.use("/productions", productionRoutes);
 
 module.exports = app;

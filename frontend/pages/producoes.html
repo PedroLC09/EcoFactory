@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Produções</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <aside class="sidebar">
+
+        <h2>EcoFactory</h2>
+
+        <nav>
+
+            <a href="dashboard.html">Dashboard</a>
+
+            <a href="maquinas.html">Máquinas</a>
+
+            <a href="producoes.html">Produções</a>
+
+        </nav>
+
+    </aside>
+
+    <main class="content">
+
+        <h1>Controle de Produções</h1>
+
+        <form id="productionForm">
+
+            <input
+                type="text"
+                id="produto"
+                placeholder="Produto"
+                required
+            >
+
+            <select id="maquina" required>
+
+                <option value="">
+                    Selecione a Máquina
+                </option>
+
+            </select>
+
+            <input
+                type="number"
+                id="produzido"
+                placeholder="Quantidade Produzida"
+                required
+            >
+
+            <input
+                type="number"
+                id="meta"
+                placeholder="Meta de Produção"
+                required
+            >
+
+            <button>
+
+                Salvar Produção
+
+            </button>
+
+        </form>
+
+        <br>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Produto</th>
+
+                    <th>Máquina</th>
+
+                    <th>Produzido</th>
+
+                    <th>Meta</th>
+
+                    <th>Eficiência</th>
+
+                    <th>Ações</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="productionTable">
+
+            </tbody>
+
+        </table>
+
+    </main>
+
+</div>
+
+<script src="../js/scriptgeral.js"></script>
+
+</body>
+
+</html>

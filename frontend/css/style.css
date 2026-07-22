@@ -145,3 +145,41 @@ th,td{
 
     border-bottom:1px solid #ddd;
 }
+
+select{
+
+    flex:1;
+
+    min-width:220px;
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+}
+
+.eficiencia-alta{
+
+    color:#15803d;
+
+    font-weight:bold;
+
+}
+
+.eficiencia-media{
+
+    color:#ca8a04;
+
+    font-weight:bold;
+
+}
+
+.eficiencia-baixa{
+
+    color:#dc2626;
+
+    font-weight:bold;
+
+}
