@@ -1,12 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Produções</title>
+<title>Segurança</title>
 
 <link rel="stylesheet" href="../css/style.css">
 
@@ -36,14 +38,14 @@
 
     <main class="content">
 
-        <h1>Controle de Produções</h1>
+        <h1>Registro de Ocorrências de Segurança</h1>
 
-        <form id="productionForm">
+        <form id="safetyForm">
 
             <input
                 type="text"
-                id="produto"
-                placeholder="Produto"
+                id="titulo"
+                placeholder="Título da Ocorrência"
                 required
             >
 
@@ -56,22 +58,44 @@
             </select>
 
             <input
-                type="number"
-                id="produzido"
-                placeholder="Quantidade Produzida"
+                type="text"
+                id="responsavel"
+                placeholder="Responsável"
                 required
             >
 
             <input
-                type="number"
-                id="meta"
-                placeholder="Meta de Produção"
+                type="date"
+                id="data"
                 required
             >
 
+            <select id="gravidade" required>
+
+                <option value="BAIXA">
+                    Baixa
+                </option>
+
+                <option value="MEDIA">
+                    Média
+                </option>
+
+                <option value="ALTA">
+                    Alta
+                </option>
+
+            </select>
+
+            <textarea
+                id="descricao"
+                placeholder="Descrição da ocorrência"
+                rows="4"
+                required
+            ></textarea>
+
             <button>
 
-                Salvar Produção
+                Registrar Ocorrência
 
             </button>
 
@@ -85,15 +109,15 @@
 
                 <tr>
 
-                    <th>Produto</th>
+                    <th>Título</th>
 
                     <th>Máquina</th>
 
-                    <th>Produzido</th>
+                    <th>Responsável</th>
 
-                    <th>Meta</th>
+                    <th>Gravidade</th>
 
-                    <th>Eficiência</th>
+                    <th>Data</th>
 
                     <th>Ações</th>
 
@@ -101,7 +125,7 @@
 
             </thead>
 
-            <tbody id="productionTable">
+            <tbody id="safetyTable">
 
             </tbody>
 
@@ -111,7 +135,7 @@
 
 </div>
 
-<script src="../js/producoes.js"></script>
+<script src="../js/seguranca.js"></script>
 
 </body>
 

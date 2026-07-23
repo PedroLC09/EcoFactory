@@ -73,3 +73,41 @@ CREATE TABLE productions(
     ON UPDATE CASCADE
 
 );
+
+CREATE TABLE safety_occurrences (
+
+    id SERIAL PRIMARY KEY,
+
+    title VARCHAR(100) NOT NULL,
+
+    description TEXT NOT NULL,
+
+    severity VARCHAR(20) NOT NULL CHECK (
+
+        severity IN (
+
+            'BAIXA',
+
+            'MEDIA',
+
+            'ALTA'
+
+        )
+
+    ),
+
+    responsible VARCHAR(100) NOT NULL,
+
+    occurrence_date DATE NOT NULL,
+
+    machine_id INTEGER NOT NULL,
+
+    FOREIGN KEY(machine_id)
+
+    REFERENCES machines(id)
+
+    ON DELETE RESTRICT
+
+    ON UPDATE CASCADE
+
+);
