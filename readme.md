@@ -253,7 +253,7 @@ Criar um banco PostgreSQL.
 Executar:
 
 ```
-database/consultas.sql
+database/schema.sql
 ```
 
 Criar o arquivo:
@@ -269,7 +269,7 @@ DB_HOST=localhost
 DB_PORT=5432
 DB_USER=postgres
 DB_PASSWORD=sua_senha
-DB_NAME=ecofactory
+DB_NAME=EcoFactory
 PORT=3000
 ```
 
