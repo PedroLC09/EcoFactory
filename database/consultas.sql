@@ -2,6 +2,8 @@ SELECT * FROM machines;
 
 SELECT * FROM productions;
 
+SELECT * FROM safety_occurrences;
+
 SELECT
 
 status,
