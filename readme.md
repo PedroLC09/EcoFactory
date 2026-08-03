@@ -201,7 +201,7 @@ As tabelas principais são:
 A criação do banco pode ser realizada utilizando o arquivo:
 
 ```
-database/consultas.sql
+database/schema.sql
 ```
 
 ---
